@@ -1,9 +1,10 @@
 import "./App.css";
-import { Header } from "./components";
+import { Header, NavBar } from "./components";
 
 const App = () => (
   <div className="App">
     <Header />
+    <NavBar />
   </div>
 );
 
