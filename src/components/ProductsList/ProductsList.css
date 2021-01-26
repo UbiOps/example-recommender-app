@@ -1,0 +1,15 @@
+.products-list__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products-list__item {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.products-list__item:last-child {
+  margin-right: 0;
+}
