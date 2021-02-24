@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
 import { capitalizeFirstLetter, generatePrice } from "utils";
@@ -12,10 +12,12 @@ import {
   SecondaryButton,
   Link,
 } from "components";
+import { CartContext } from "App";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const product = products[id];
+  const [, setCartItems] = useContext(CartContext);
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
@@ -39,6 +41,7 @@ const ProductDetails = () => {
           <PrimaryButton
             className="product-details__cart-button"
             startIcon="icon-shopping-cart"
+            onClick={() => setCartItems((prevState) => prevState + 1)}
           >
             Add to cart
           </PrimaryButton>
