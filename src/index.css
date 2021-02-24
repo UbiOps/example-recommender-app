@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-txt-color);
@@ -47,4 +47,8 @@ h4 {
 h5 {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+}
+
+p {
+  font-size: 0.9em;
 }
