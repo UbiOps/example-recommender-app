@@ -5,7 +5,13 @@ import { capitalizeFirstLetter, generatePrice } from "utils";
 import products from "assets/products.json";
 import productImage from "assets/images/product.png";
 
-import { PrimaryButton, Price, SecondaryButton, Link } from "components";
+import {
+  PrimaryButton,
+  Price,
+  Recommendations,
+  SecondaryButton,
+  Link,
+} from "components";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -49,6 +55,8 @@ const ProductDetails = () => {
           </p>
         </div>
       </div>
+
+      <Recommendations product={product} />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import PrimaryButton from "./PrimaryButton/PrimaryButton";
 import ProductCard from "./ProductCard/ProductCard";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductsList from "./ProductsList/ProductsList";
+import Recommendations from "./Recommendations/Recommendations";
 import SecondaryButton from "./SecondaryButton/SecondaryButton";
 
 export {
@@ -19,5 +20,6 @@ export {
   ProductCard,
   ProductDetails,
   ProductsList,
+  Recommendations,
   SecondaryButton,
 };
