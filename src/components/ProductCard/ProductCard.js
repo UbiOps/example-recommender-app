@@ -1,4 +1,6 @@
 import "./ProductCard.css";
+import { Link } from "components";
+import { memo } from "react";
 import productImage from "assets/images/product.png";
 
 const capitalizeFirstLetter = (string) => {
@@ -11,9 +13,10 @@ const generatePrice = () => {
   return roundedPrice.toFixed(2);
 };
 
-const ProductCard = ({ product, className, ...props }) => (
-  <div
+const ProductCard = ({ product, className, id, ...props }) => (
+  <Link
     className={["product-card", className].filter((x) => x).join(" ")}
+    to={`/products/${id}`}
     {...props}
   >
     <img
@@ -25,7 +28,7 @@ const ProductCard = ({ product, className, ...props }) => (
       <h4>{capitalizeFirstLetter(product)}</h4>
       <h3 className="product-card__price">€ {generatePrice().toString()}</h3>
     </div>
-  </div>
+  </Link>
 );
 
-export default ProductCard;
+export default memo(ProductCard);
