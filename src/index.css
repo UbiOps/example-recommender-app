@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Work+Sans:wght@300;400;500;600;700&display=swap");
-@import "variables";
+@import "styling/variables";
+@import "styling/fonts";
 
 * {
   box-sizing: border-box;
