@@ -7,7 +7,7 @@ const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 const API_URL = process.env.REACT_APP_API_URL;
 const PROJECT_NAME = process.env.REACT_APP_PROJECT_NAME;
 const DEPLOYMENT_NAME = process.env.REACT_APP_DEPLOYMENT_NAME;
-const VERSION_NAME = process.env.REACT_APP_VERSION_NAME;
+const DEPLOYMENT_VERSION = process.env.REACT_APP_DEPLOYMENT_VERSION;
 
 async function postRequest(url = "", data = {}) {
   const response = await fetch(API_URL + url, {
@@ -26,7 +26,7 @@ const Recommendations = ({ product }) => {
 
   useEffect(() => {
     postRequest(
-      `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${VERSION_NAME}/request?timeout=3600`,
+      `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/request?timeout=3600`,
       { clicked_product: product }
     ).then((response) => setRecommendations(response.result.recommendation));
 
