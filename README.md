@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Example: Recommender WebApp
+
+Click [here](https://recommender-app.ubiops.com/) for a live demo.
+
+## What is this for?
+
+This app is a real world example of how to integrate UbiOps and make requests to your model into your own WebApp.
+
+You can find an article that describes this use case [here](https://recommender-app.ubiops.com/).
+
+:warning: Before trying to call the UbiOps API from your own domain, send us a message and we'll whitelist it for you! You'll soon be able to do it yourself from the UbiOps WebApp though.
+
+## How do I call my model from a WebApp?
+
+This app is using ReactJs. Although, the request sent to the model hosted on UbiOps is plain JavaScript and the code can be use in any JavaScript framework/library.
+
+The only component we're interested in here is [Recommendation.js](src/components/Recommendations/Recommendations.js).
+
+You can simply follow these 3 steps to do the same in your WebApp:
+
+1. Define all the parameters you'll need to call your model:
+
+```js
+const API_TOKEN = "<your-api-token>";
+const API_URL = "https://api.ubiops.com.v2.1";
+const PROJECT_NAME = "<your-project-name>";
+const DEPLOYMENT_NAME = "<your-deployment-name>";
+const DEPLOYMENT_VERSION = "<your-version-name>";
+```
+
+2. Then define an asynchronous function to request data from the UbiOps API:
+
+```js
+async function postRequest(url = "", data = {}) {
+  const response = await fetch(API_URL + url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: API_TOKEN,
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
+```
+
+3. Finally, make a request to your model:
+
+```js
+postRequest(
+  `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/request`,
+  // `clicked_product` is part of the input fields defined in the model
+  { clicked_product: product }
+).then((response) => {
+  // your data is in `response.result` and `result` contains all the output fields defined in your model
+};
+```
+
+## How do I run this app?
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can run the usual scripts using `npm` (see the `scripts` section in [package.json](package.json)).
