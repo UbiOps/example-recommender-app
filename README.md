@@ -6,7 +6,7 @@ Click [here](https://recommender-app.ubiops.com/) for a live demo.
 
 This app is a real world example of how to integrate UbiOps and make requests to your model into your own WebApp.
 
-You can find an article that describes this use case [here](https://recommender-app.ubiops.com/).
+You can find an article that describes this use case [here](https://medium.com/dutch-analytics-tech/how-to-build-and-implement-a-recommendation-system-from-scratch-in-python-b5a04d9e8331).
 
 :warning: Before trying to call the UbiOps API from your own domain, send us a message and we'll whitelist it for you! You'll soon be able to do it yourself from the UbiOps WebApp though.
 
