@@ -22,7 +22,7 @@ You can simply follow these 3 steps to do the same in your WebApp:
 
 ```js
 const API_TOKEN = "<your-api-token>";
-const API_URL = "https://api.ubiops.com.v2.1";
+const API_URL = "https://api.ubiops.com/v2.1";
 const PROJECT_NAME = "<your-project-name>";
 const DEPLOYMENT_NAME = "<your-deployment-name>";
 const DEPLOYMENT_VERSION = "<your-version-name>";
