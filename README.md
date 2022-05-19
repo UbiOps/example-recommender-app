@@ -8,7 +8,8 @@ This app is a real world example of how to integrate UbiOps and make requests to
 
 You can find an article that describes this use case [here](https://medium.com/dutch-analytics-tech/how-to-build-and-implement-a-recommendation-system-from-scratch-in-python-b5a04d9e8331).
 
-:warning: Before trying to call the UbiOps API from your own domain, send us a message and we'll whitelist it for you! You'll soon be able to do it yourself from the UbiOps WebApp though.
+:warning: Before trying to call the UbiOps API from your own domain, make sure you add your domain as an "allowed domain" to your API token!
+Otherwise the API call will be blocked.
 
 ## How do I call my model from a WebApp?
 
@@ -48,7 +49,7 @@ async function postRequest(url = "", data = {}) {
 
 ```js
 postRequest(
-  `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/request`,
+  `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/requests`,
   // `clicked_product` is part of the input fields defined in the model
   { clicked_product: product }
 ).then((response) => {
