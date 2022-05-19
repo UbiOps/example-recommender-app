@@ -26,7 +26,7 @@ const Recommendations = ({ product }) => {
 
   useEffect(() => {
     postRequest(
-      `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/request?timeout=3600`,
+      `/projects/${PROJECT_NAME}/deployments/${DEPLOYMENT_NAME}/versions/${DEPLOYMENT_VERSION}/requests?timeout=3600`,
       { clicked_product: product }
     ).then((response) => setRecommendations(response.result.recommendation));
 
